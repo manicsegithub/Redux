@@ -1,0 +1,131 @@
+1.Create the new component
+   CustomerAdd 
+
+2.Create the Layout 
+   Call the CustomerAdd function
+
+3.Use the UseState hook in CustomerAdd 
+    const [input, setInput] = useState 
+
+  Add some command in input feild 
+    Use the onChange listeners
+    e - event
+    target - one of the method 
+    value - typing value in the input feild 
+
+4.Create the function for check the input feild 
+    Create the new empty array
+    In the functions we can access the old previousState 
+    Then check with console.log()
+
+5.Creating CustomerView Component
+    map the customers in the list format
+
+6.How to share data between components 
+   By using pros to share the data 
+
+7.Share Data using props 
+   First thing we can assign the CustomerView in child of CustomerAdd
+   In child components we can pass the props 
+      <CustomerView customerInput = {customerInput} />  
+
+   In CustomerView
+     In function CustomerView(customers) pass the customers 
+
+8.Use the useContext
+  useContext is look like tunnel,we can pass the data into the tunnel 
+  we can pass the data into one component to another component
+
+9.Redux
+  It helps to store the data in one place then we can access the same data in different components
+
+    eg:
+                                store
+
+              customer Add1                customer Add2
+                component                     component
+
+              The customer Add1 may make one value then stored in stored memory 
+              Then the customer Add2 can access the same value for the stored memory 
+
+10.Sharing Data using Redux
+   Install Redux package 
+   npm i react-redux @reduxjs/toolkit
+
+11.Create Store 
+   Import the configureStore for reduxjs toolkit
+
+12.Create the Slice 
+   Its a piece of the state or Cut the single piece in the total state 
+   Create the new folder and file with using Slice 
+
+     use the InitialState = []; // refer the CustomerView data is null
+
+   create the cutomerSlice function
+
+   Create reducer functions 
+     Recuders is the property 
+     use the addCustomer(state, action), the addCustomer is the button handler in "Customer_Add" file 
+       state - refer the old data 
+       action is used to insert the new data 
+       it contains the push method insert the value inside the array 
+         action.payload is use to insert the value 
+
+   Exporting Action Creators and Reducer in Slice file  
+     export the addCustomer function 
+     export the reducer 
+   
+   we can use reducer method store file 
+
+13.Sharing Redux Store Using Provider 
+   The Provider is act as the parent in the layout.jsx page or App.jsx
+   Provider is the inbuild method in react-redux 
+
+   Then we can import the Redux_store folder and pass into Provider
+   We can import the Redux_store file in the layout page and pass the store 
+    as pros of the Provider 
+       <provider store = {store}> </provider> 
+   By using the store, the data can be access by all the components 
+
+14.Redux Devtools Extension
+    It is the chrome Extension,Search the Redux devtool and install it in chrome 
+
+15.Dispatch Action
+   We can pass the data by using addCustomer actions to push the value
+   first import addCustomer into the Customer_Add file 
+
+   In the Customer_Add function and import addCustomer are same mean we can 
+    use the as to assign the new name 
+       {addCustomer as addCustomerAction}
+
+   Then we can import Dispatch from the react-redux 
+     We can comment the CustomerView from the Customer_Add file
+     Then we remove the pros from the CustomerView and remove the ul list
+
+   " Every Action function are come under the dispatch function "  
+
+16.Actions and state Changes 
+    We fill the data in input feild 
+    And then check in redux dev tool 
+    
+17.Getting Data from the store 
+   We use the useSelector hook 
+   By using useSelector hook we fetch the data from state and render
+
+18.Adding Customer Delete 
+   first we can create the button in the CustomerView file inside the list
+     <li> {customer, index} <button onClick={() => Deletehandle}> Delete </button>
+   Index is refer the index position of the value 
+   Write the function for Deletehandle
+
+19.Create the reducer for Delete Action
+   create the another inside the cutomerSlice file
+   Below the addCustomer,create the deleteCustomer
+   Then export the deleteCustomer 
+   Use the deleteCustomer in CustomerView file 
+
+20.Devtools
+   In Redux_store file 
+      devtool: false; means we can redux file cannot be access by other
+ 
+
